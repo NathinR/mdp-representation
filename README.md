@@ -39,33 +39,55 @@ The reward function provides immediate feedback to the agent based on the action
 Developed By: Nathin R
 Ref No: 212222230090
 ~~~
+### Deterministic
 ~~~python
 import gym
 import gym_walk
 
+
+
 P={
     0: {
-        0: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True), (0.0, 0, 0.0, True)],
-        1: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True), (0.0, 0, 0.0, True)],
-        2: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True), (0.0, 0, 0.0, True)]
+        1: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True)],
+        2: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True)]
     },
     1: {
-        0: [(1.0, 0, 0.0, True), (0.0, 1, 0.0, False), (0.0, 2, 1.0, True)],
-        1: [(1.0, 2, 1.0, True), (0.0, 1, 0.0, False), (0.0, 0, 0.0, True)],
-        2: [(1.0, 2, 0.0, True), (0.0, 1, 0.0, False), (0.0, 2, 1.0, True)]
-    },
-    2: {
-        0: [(1.0, 2, 0.0, True), (0.0, 2, 0.0, True), (0.0, 2, 0.0, True)],
-        1: [(1.0, 2, 0.0, True), (0.0, 2, 0.0, True), (0.0, 2, 0.0, True)],
-        2: [(1.0, 2, 0.0, True), (0.0, 2, 0.0, True), (0.0, 2, 0.0, True)]
+        0: [(1.0, 0, 0.0, True), (0.0, 1, 0.0, False)],
+        1: [(1.0, 2, 1.0, True), (0.0, 1, 0.0, False)]
     }
 }
 
 P
 ~~~
-
+### Stochastic
+```
+P={
+    0: {
+        0: [(0.5, 0, 0.0, True), (0.5, 0, 0.0, True)],
+        1: [(0.2, 0, 0.0, True), (0.8, 0, 0.0, True)]
+        
+    },
+    1: {
+        0: [(0.9, 0, 0.0, True), (0.1, 1, 0.0, False)],
+        1: [(0.4, 2, 1.0, True), (0.6, 1, 0.0, False)]
+    } 
+}
+```
 ## OUTPUT:
-![3](https://github.com/Pravinrajj/mdp-representation/assets/117917674/c551de65-b3de-4f11-97ea-cc8048d5da24)
+### Deterministic
+```
+{0: {1: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True)],
+  2: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True)]},
+ 1: {0: [(1.0, 0, 0.0, True), (0.0, 1, 0.0, False)],
+  1: [(1.0, 2, 1.0, True), (0.0, 1, 0.0, False)]}}
+```
 
+### Stochastic
+```
+{0: {0: [(0.5, 0, 0.0, True), (0.5, 0, 0.0, True)],
+  1: [(0.2, 0, 0.0, True), (0.8, 0, 0.0, True)]},
+ 1: {0: [(0.9, 0, 0.0, True), (0.1, 1, 0.0, False)],
+  1: [(0.4, 2, 1.0, True), (0.6, 1, 0.0, False)]}}
+```
 ## RESULT:
 Thus, the MDP is used to create a AI to play Tick-Tack-Toe game has successfullu created.
